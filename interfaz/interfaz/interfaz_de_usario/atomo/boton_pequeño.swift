@@ -1,13 +1,13 @@
 //
-//  boton_largo_de_inicio.swift
+//  boton_pequeño.swift
 //  interfaz
 //
-//  Created by alumno on 2/16/26.
+//  Created by alumno on 2/20/26.
 //
 
 import SwiftUI
 
-struct BotonMinecraft: View {
+struct BotonMiniMinecraft: View {
     
     var texto: String
     
@@ -17,7 +17,6 @@ struct BotonMinecraft: View {
             Rectangle()
                 .fill(Color.grisClaro)
                 .frame(height: 60)
-            
             
             VStack {
                 Rectangle()
@@ -32,12 +31,14 @@ struct BotonMinecraft: View {
                     .fill(Color.black.opacity(0.5))
                     .frame(height: 6)
             }
-            
-            Text(texto)
-                .font(.custom("minecraft_font", size: 26))
-                .foregroundColor(.black)
+            Image(systemName: texto)
+                .resizable()
+                .scaledToFit()
+                .padding(15)
+                .mask(Circle())
         }
-        .frame(width: 320, height: 60)
+            
+        .frame(width: 60, height: 60)
         .overlay(
             Rectangle()
                 .stroke(Color.black, lineWidth: 3)
@@ -46,13 +47,5 @@ struct BotonMinecraft: View {
 }
 
 #Preview {
-    BotonMinecraft(texto: "test")
-        .onAppear{
-            for family in UIFont.familyNames {
-                print(family)
-                for name in UIFont.fontNames(forFamilyName: family) {
-                    print("   \(name)")
-                }
-            }
-        }
+    BotonMiniMinecraft(texto: "hanger")
 }

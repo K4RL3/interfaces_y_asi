@@ -22,13 +22,27 @@ struct PantallaDeInicio : View {
                     .frame(width: 500)
                     .padding(-70)
                 
-                Rectangle()
-                    .frame(width: 300, height: 50)
+                BotonMinecraft(texto: "Play")
                 
-                Rectangle()
-                    .frame(width: 300, height: 50)
+                Spacer()
+                
+                BotonMinecraft(texto: "Achivements")
+                
+                Spacer()
+                
+                BotonMinecraft(texto: "Settings")
+                
+                HStack{
+                    BotonMiniMinecraft(texto: "person.wave.2.fill")
+                    
+                    Spacer()
+                    
+                    BotonMiniMinecraft(texto: "hanger")
+                }
+                .frame(height: 5)
                 
             }
+            .frame(height: 350)
         }
     }
 }

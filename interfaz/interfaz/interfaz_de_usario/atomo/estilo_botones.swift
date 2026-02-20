@@ -1,23 +1,18 @@
 //
-//  boton_largo_de_inicio.swift
+//  estilo_botones.swift
 //  interfaz
 //
-//  Created by alumno on 2/16/26.
+//  Created by alumno on 2/20/26.
 //
 
 import SwiftUI
 
-struct BotonMinecraft: View {
-    
-    var texto: String
-    
-    var body: some View {
+struct estiloBoton: ViewModifier {
+    func body(content: Content) -> some View {
         ZStack {
-            
             Rectangle()
                 .fill(Color.grisClaro)
                 .frame(height: 60)
-            
             
             VStack {
                 Rectangle()
@@ -33,7 +28,7 @@ struct BotonMinecraft: View {
                     .frame(height: 6)
             }
             
-            Text(texto)
+            content
                 .font(.custom("minecraft_font", size: 26))
                 .foregroundColor(.black)
         }
@@ -45,14 +40,9 @@ struct BotonMinecraft: View {
     }
 }
 
-#Preview {
-    BotonMinecraft(texto: "test")
-        .onAppear{
-            for family in UIFont.familyNames {
-                print(family)
-                for name in UIFont.fontNames(forFamilyName: family) {
-                    print("   \(name)")
-                }
-            }
-        }
+extension View {
+    func EstiloDeBoton() -> some View {
+        self.modifier(estiloBoton())
+    }
 }
+
